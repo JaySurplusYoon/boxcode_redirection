@@ -2,8 +2,8 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>boxcode.me로 이동합니다</title>
-    <meta http-equiv="refresh" content="3; URL='https://www.boxcode.me'" />
+    <title>boxcode - 업무의 시작</title>
+    <meta http-equiv="refresh" content="5; URL='https://www.boxcode.me'" />
     <style>
         body {
             margin: 0;
@@ -21,27 +21,52 @@
 
         .container {
             text-align: center;
-            animation: fadeOut 3s ease-in-out forwards;
-            animation-delay: 2s;
+            animation: finalFadeOut 5s ease-in-out forwards;
+            animation-delay: 4s;
+        }
+
+        .box-emoji {
+            font-size: 4em;
+            opacity: 0;
+            animation: rotateIn 0.8s ease-out forwards;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .title-container {
+            overflow: hidden;
         }
 
         h1 {
             font-size: 2.5em;
-            margin-bottom: 0.5em;
+            margin: 0.5em 0;
             background: linear-gradient(45deg, #3498db, #2ecc71);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             opacity: 0;
-            animation: slideIn 0.5s ease-out forwards;
+            animation: slideIn 0.8s ease-out forwards;
+            animation-delay: 0.8s;
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            color: #fff;
+            opacity: 0;
+            animation: slideIn 0.8s ease-out forwards;
+            animation-delay: 1.6s;
+            margin: 0.5em 0;
         }
 
         .loader {
-            width: 150px;
+            width: 200px;
             height: 8px;
             background: #2d2d2d;
             border-radius: 4px;
-            margin: 20px auto;
+            margin: 30px auto;
             overflow: hidden;
+            opacity: 0;
+            animation: fadeIn 0.5s ease-out forwards;
+            animation-delay: 2.4s;
         }
 
         .loader-bar {
@@ -53,12 +78,15 @@
             transform: scaleX(0);
         }
 
-        .message {
-            font-size: 1.1em;
-            color: #888;
-            opacity: 0;
-            animation: slideIn 0.5s ease-out forwards;
-            animation-delay: 0.3s;
+        @keyframes rotateIn {
+            0% {
+                opacity: 0;
+                transform: rotate(-180deg) scale(0);
+            }
+            100% {
+                opacity: 1;
+                transform: rotate(0) scale(1);
+            }
         }
 
         @keyframes loading {
@@ -66,7 +94,7 @@
             100% { transform: scaleX(1); }
         }
 
-        @keyframes fadeOut {
+        @keyframes finalFadeOut {
             0% { opacity: 1; transform: scale(1); }
             100% { opacity: 0; transform: scale(0.95); }
         }
@@ -74,12 +102,17 @@
         @keyframes slideIn {
             0% { 
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
             100% { 
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
         }
 
         .link {
@@ -98,18 +131,21 @@
 </head>
 <body>
     <div class="container">
-        <h1>boxcode.me로 이동합니다</h1>
+        <div class="box-emoji">📦</div>
+        <div class="title-container">
+            <h1>업무의 새로운 기준, 박스코드</h1>
+            <div class="subtitle">더 쉽고 효율적인 업무의 시작</div>
+        </div>
         <div class="loader">
             <div class="loader-bar"></div>
         </div>
-        <p class="message">잠시만 기다려주세요...</p>
     </div>
     <a href="https://www.boxcode.me" class="link">자동으로 이동하지 않는 경우 여기를 클릭하세요</a>
 
     <script>
         setTimeout(() => {
             window.location.href = "https://www.boxcode.me";
-        }, 3000);
+        }, 5000);
     </script>
 </body>
 </html>
